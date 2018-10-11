@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body, button, input, select, textarea {
-  font-family: "Courier New", "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif; }
+  font-family: "Roboto", "Open Sans", sans-serif, "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei"; }
 
 a.tag.article-tag {
   font-size: 0.9rem;
@@ -206,7 +206,7 @@ a.tag.article-tag {
 .archive .article {
   border-top: none;
   margin-left: -1px;
-  padding: 1rem 1.5rem;
+  padding: 0.1rem 1.5rem;
   border-left: 3px solid transparent; }
   .archive .article:hover {
     border-left-color: black; }
@@ -297,7 +297,7 @@ a.tag.article-tag {
 
 code, pre {
   font-size: 0.85rem;
-  font-family: "Source Code Pro", monospace, "Microsoft YaHei"; }
+  font-family: monospace, "Source Code Pro", "Microsoft YaHei"; }
 
 figure.highlight {
   padding: 0;
@@ -313,7 +313,7 @@ figure.highlight {
     padding: 0;
     overflow: visible; }
     figure.highlight pre .line {
-      line-height: 1.5rem; }
+      line-height: 1.2rem; }
   figure.highlight figcaption,
   figure.highlight .gutter {
     background: rgba(200, 200, 200, 0.15); }
@@ -324,7 +324,7 @@ figure.highlight {
     font-size: .8rem; }
     figure.highlight figcaption span {
       font-weight: 500;
-      font-family: "Source Code Pro", monospace, "Microsoft YaHei"; }
+      font-family: monospace, "Source Code Pro", "Microsoft YaHei"; }
     figure.highlight figcaption a {
       float: right;
       color: #9a9a9a; }
