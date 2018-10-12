@@ -2,13 +2,17 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Category: algorithm - XinkaiSong&#39;s Homepage</title>
+<title>Category: algorithm - Xinkai Song&#39;s Homepage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
+<meta name="description" content="Xinkai Song's blog about algorithm, programming, operating systems">
 
+
+
+<meta name="keywords" content="Xinkai Song algorithm php golang">
 
 
 
@@ -108,7 +112,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2016/03/18/filter_by_bit_operate/" itemprop="url">位运算在条件过滤中的应用</a>
+            <a href="/2016/03/18/filter_by_bit_operate.html" itemprop="url">位运算在条件过滤中的应用</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -138,13 +142,14 @@
 <h3 id="那么对于一条资源我们如何存储flag呢？"><a href="#那么对于一条资源我们如何存储flag呢？" class="headerlink" title="那么对于一条资源我们如何存储flag呢？"></a>那么对于一条资源我们如何存储<code>flag</code>呢？</h3><p>作按位与运算 ： <code>$flag = $auth | $os;</code><br>假设<code>$auth</code> 是<code>FLAG_AUTH_NO</code> 对应的二进制就是<code>0010</code>，<code>$os</code>是<code>FLAG_OS_IOS</code>对应的二进制是<code>0010 0000</code>，那么进行按位或以后flag的值就是<code>0010 0010</code>，对应的十进制就是34。</p>
 <h3 id="在显示资源的列表的时候如何知道该资源的每个条件值呢？"><a href="#在显示资源的列表的时候如何知道该资源的每个条件值呢？" class="headerlink" title="在显示资源的列表的时候如何知道该资源的每个条件值呢？"></a>在显示资源的列表的时候如何知道该资源的每个条件值呢？</h3><p>对于上面存入的资源，我们可以使用<a href="http://baike.baidu.com/view/68.htm" title="掩码" target="_blank" rel="noopener">掩码</a>运算，对于<code>os</code>作按位与运算<br><code>$os = flag &amp; FLAG_OS_ALL</code>，这样我们就可以得到<code>0010 0000</code>也就是<code>FLAG_OS_IOS</code>。<br></p>
         <p class="article-more-link">
-            <a href="/2016/03/18/filter_by_bit_operate/#more">Read More</a>
+            <a href="/2016/03/18/filter_by_bit_operate.html#more">Read More</a>
         </p>
     
     </div>
     
     
 </article>
+
 
 
 

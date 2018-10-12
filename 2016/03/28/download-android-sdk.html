@@ -2,13 +2,17 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>位运算在条件过滤中的应用 - XinkaiSong&#39;s Homepage</title>
+<title>国内下载Android SDK方法 - Xinkai Song&#39;s Homepage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
+<meta name="description" content="Xinkai Song's blog about algorithm, programming, operating systems">
 
+
+
+<meta name="keywords" content="Xinkai Song algorithm php golang">
 
 
 
@@ -100,17 +104,17 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            位运算在条件过滤中的应用
+            国内下载Android SDK方法
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2016-03-18T02:56:13.000Z" itemprop="datePublished">Mar 18 2016</time>
+            <time datetime="2016-03-28T07:40:00.000Z" itemprop="datePublished">Mar 28 2016</time>
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+            <a class="article-category-link" href="/categories/note/">note</a>
         </span>
         
         
@@ -118,42 +122,31 @@
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <blockquote>
-<p>比如有一些用户资源，需要根据用户的属性条件过滤，条件如下：</p>
-<ul>
-<li>是否认证用户</li>
-<li>用户手机平台</li>
-</ul>
+<p>国内下载Android SDK由于方某的科研成果导致无法下载。</p>
 </blockquote>
-<p>假设资源在MySQL中的存储表定义如下<br><figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id int</span><br><span class="line">resource varchar</span><br><span class="line">flag int</span><br></pre></td></tr></table></figure></p>
-<p>这儿<code>flag</code>是我定义的存储过滤条件的一个字段，对于条件值定义如下：<br><figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FLAG_AUTH_YES = <span class="hljs-number">0x01</span>;  <span class="hljs-comment">//认证用户</span></span><br><span class="line">FLAG_AUTH_NO  = <span class="hljs-number">0x02</span>; <span class="hljs-comment">//未认证用户</span></span><br><span class="line">FLAG_AUTH_ALL = <span class="hljs-number">0x0F</span>;  <span class="hljs-comment">//不限制</span></span><br><span class="line"></span><br><span class="line">FLAG_OS_ANDROID = <span class="hljs-number">0x10</span>; <span class="hljs-comment">//Android</span></span><br><span class="line">FLAG_OS_IOS     = <span class="hljs-number">0x20</span>; <span class="hljs-comment">//iOS</span></span><br><span class="line">FLAG_OS_WP      = <span class="hljs-number">0x40</span>; <span class="hljs-comment">//WP</span></span><br><span class="line">FLAG_OS_ALL     = <span class="hljs-number">0xF0</span>; <span class="hljs-comment">//不限制</span></span><br></pre></td></tr></table></figure></p>
-<p>根据定义我们知道，<code>flag</code>使用四位来存储一个条件，那么一个条件最多可以支持四种不同的情况。</p>
-<h3 id="那么对于一条资源我们如何存储flag呢？"><a href="#那么对于一条资源我们如何存储flag呢？" class="headerlink" title="那么对于一条资源我们如何存储flag呢？"></a>那么对于一条资源我们如何存储<code>flag</code>呢？</h3><p>作按位与运算 ： <code>$flag = $auth | $os;</code><br>假设<code>$auth</code> 是<code>FLAG_AUTH_NO</code> 对应的二进制就是<code>0010</code>，<code>$os</code>是<code>FLAG_OS_IOS</code>对应的二进制是<code>0010 0000</code>，那么进行按位或以后flag的值就是<code>0010 0010</code>，对应的十进制就是34。</p>
-<h3 id="在显示资源的列表的时候如何知道该资源的每个条件值呢？"><a href="#在显示资源的列表的时候如何知道该资源的每个条件值呢？" class="headerlink" title="在显示资源的列表的时候如何知道该资源的每个条件值呢？"></a>在显示资源的列表的时候如何知道该资源的每个条件值呢？</h3><p>对于上面存入的资源，我们可以使用<a href="http://baike.baidu.com/view/68.htm" title="掩码" target="_blank" rel="noopener">掩码</a>运算，对于<code>os</code>作按位与运算<br><code>$os = flag &amp; FLAG_OS_ALL</code>，这样我们就可以得到<code>0010 0000</code>也就是<code>FLAG_OS_IOS</code>。<br><a id="more"></a></p>
-<h3 id="对于查询如何使用条件过滤"><a href="#对于查询如何使用条件过滤" class="headerlink" title="对于查询如何使用条件过滤"></a>对于查询如何使用条件过滤</h3><p>比如我要查询iOS系统且认证的用户对应的资源。<br><figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$os = FLAG_OS_IOS; $auth = FLAG_AUTH_YES</span><br></pre></td></tr></table></figure></p>
-<p>首先我们根据条件做按位或运算得到查询flag的过滤条件<br><code>$flag = $os | $auth</code><br>然后在sql中过滤<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">resource</span> <span class="hljs-keyword">where</span> flag &amp; $flag = $flag</span><br></pre></td></tr></table></figure></p>
-<p>这样就可以精确匹配到对应的资源。</p>
-<h3 id="又添加了别的条件怎么办？"><a href="#又添加了别的条件怎么办？" class="headerlink" title="又添加了别的条件怎么办？"></a>又添加了别的条件怎么办？</h3><p>假如又需要添加一个用户是否充值作为条件，我们定义常量如下：<br><figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FLAG_RECHARGED_YES = <span class="hljs-number">0x100</span>; <span class="hljs-comment">//充值用户</span></span><br><span class="line">FLAG_RECHARGED_NO  = <span class="hljs-number">0x200</span>; <span class="hljs-comment">//未充值用户</span></span><br><span class="line">FLAG_RECHARGED_ALL = <span class="hljs-number">0xF00</span>; <span class="hljs-comment">//不限制</span></span><br></pre></td></tr></table></figure></p>
-<p>那么我们存<code>flag</code>的时候再多加一次按位或就可以了，这儿注意的是条件的个数，<code>flag</code>不要溢出，要存储更多的条件就需要更大位数的整数。</p>
+<h3 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h3><ol>
+<li>启动<code>Android SDK Manager</code>，打开<code>Tool-&gt;Options</code>找到<code>Android SDK Manager Settings</code>窗口。</li>
+<li>在<code>Android SDK Manager Settings</code>窗口中，在<code>Http Proxy Server</code>和<code>Http Proxy Port</code>分辨输入<code>mirrors.neusoft.edu.cn</code>和<code>80</code>，并且选中<code>Force Https://....sources to be fetched using http://....</code>，设置完成后点击Close关闭<code>Android SDK Manager Settings</code> 窗口返回主界面。</li>
+<li>然后你就发现，世界突然变得很美好了。PS:感谢东软提供的好东西。</li>
+</ol>
 
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/algorithm/">#algorithm</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Android/">#Android</a></span>
     
     </div>
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/2016/03/23/mysql_transcation_isolation_level/">数据库事务隔离级别</a>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2015/09/07/php-compile-configure-options/">PHP常用编译选项说明</a>
+            <a href="/2016/03/23/mysql_transcation_isolation_level.html">数据库事务隔离级别</a>
             
         </span>
     </div>
@@ -175,8 +168,8 @@
     
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://blog.0xfx0.com/2016/03/18/filter_by_bit_operate/';
-        this.page.identifier = '2016/03/18/filter_by_bit_operate/';
+        this.page.url = 'http://blog.0xfx0.com/2016/03/28/download-android-sdk.html';
+        this.page.identifier = '2016/03/28/download-android-sdk.html';
         
         this.language = 'en';
         
@@ -194,6 +187,7 @@
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </div>
+
 
     </div>
 </section>

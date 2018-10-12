@@ -2,13 +2,17 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>国内下载Android SDK方法 - XinkaiSong&#39;s Homepage</title>
+<title>数据库事务隔离级别 - Xinkai Song&#39;s Homepage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
+<meta name="description" content="Xinkai Song's blog about algorithm, programming, operating systems">
 
+
+
+<meta name="keywords" content="Xinkai Song algorithm php golang">
 
 
 
@@ -100,17 +104,12 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            国内下载Android SDK方法
+            数据库事务隔离级别
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2016-03-28T07:40:00.000Z" itemprop="datePublished">Mar 28 2016</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/note/">note</a>
+            <time datetime="2016-03-23T08:51:00.000Z" itemprop="datePublished">Mar 23 2016</time>
         </span>
         
         
@@ -118,31 +117,77 @@
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <blockquote>
-<p>国内下载Android SDK由于方某的科研成果导致无法下载。</p>
+<p>数据库的事务隔离级别从低到高有Read Uncommitted、Read Committed、Repeatable Read、Serialization</p>
 </blockquote>
-<h3 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h3><ol>
-<li>启动<code>Android SDK Manager</code>，打开<code>Tool-&gt;Options</code>找到<code>Android SDK Manager Settings</code>窗口。</li>
-<li>在<code>Android SDK Manager Settings</code>窗口中，在<code>Http Proxy Server</code>和<code>Http Proxy Port</code>分辨输入<code>mirrors.neusoft.edu.cn</code>和<code>80</code>，并且选中<code>Force Https://....sources to be fetched using http://....</code>，设置完成后点击Close关闭<code>Android SDK Manager Settings</code> 窗口返回主界面。</li>
-<li>然后你就发现，世界突然变得很美好了。PS:感谢东软提供的好东西。</li>
-</ol>
+<h3 id="Read-Uncommitted-未提交读"><a href="#Read-Uncommitted-未提交读" class="headerlink" title="Read Uncommitted 未提交读"></a>Read Uncommitted 未提交读</h3><p>RU级别，事务中的修改即使没有提交，对别的事务也是可见的，别的事务可以读取未提交的数据，就会造成脏读，实际应用中很少用。</p>
+<blockquote>
+<p>eg. 脏读：小明今天发工资，公司财务把1w块钱打到小明的卡上，这时候并未提交事务，小明一查1w块，怎么比平时多了2000，很开始，后来财务发现这个问题，又撤销了事务，小明最后卡里没得到钱，白开心一场。</p>
+</blockquote>
+<h3 id="Read-Committed-提交读"><a href="#Read-Committed-提交读" class="headerlink" title="Read Committed 提交读"></a>Read Committed 提交读</h3><p>RC级别，只有事务提交的数据才对其他的事务可见，但是一个事务在处理过程中如果多次执行相同条件的查询的话可能读到不同的数据，因为在执行完第一次查询以后可能会有其他事务修改了数据，这称之为不可重复读。<br>RC解决了脏读的问题，大多数的数据库采用的默认级别都是RC。</p>
+<blockquote>
+<p>eg. 不可重复读：小明刚发了工资8000块，拿着工资卡去给老婆买礼物，2000元的衣服，刷卡的时候系统检测到小明的卡里有8000，这时候小明的老婆在网上偷偷把8000转到了余额宝，最后从小明卡里扣钱的时候提示扣款失败，小明就很郁闷明明有钱，这就是不可重复读的问题。<br><a id="more"></a></p>
+</blockquote>
+<h3 id="Repeatable-Read-重复读"><a href="#Repeatable-Read-重复读" class="headerlink" title="Repeatable Read 重复读"></a>Repeatable Read 重复读</h3><p>RR级别，在一个事务读取数据的时候，禁止别的事务修改上一个事务读取的数据，可以保证在同一个事务中多次读取数据的结果是一样的，虽然解决了不可重复读的问题，但是理论上还是会有幻读的问题，MySQL的InnoDB存储引擎通过多版本并发控制解决了幻读的问题。<strong>MySQL的默认级别是RR</strong>。</p>
+<blockquote>
+<p>eg. 幻读：比如小明在网上查看当月消费账单，显示1000元，这时候小明家的败家娘们在商场又刷了一单1000，并且事务提交了，小明点了打印账单发现竟然是2000。</p>
+</blockquote>
+<h3 id="Serializable-可串行化"><a href="#Serializable-可串行化" class="headerlink" title="Serializable 可串行化"></a>Serializable 可串行化</h3><p>S级是最高的隔离级别，通过强制的串行执行事务，但是会导致大量的超时和争锁的问题。实际中也很少使用。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th>级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RU</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>RC</td>
+<td>N</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>S</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
 
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Android/">#Android</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/MySQL/">#MySQL</a></span>
     
     </div>
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2016/03/28/download-android-sdk.html">国内下载Android SDK方法</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2016/03/23/mysql_transcation_isolation_level/">数据库事务隔离级别</a>
+            <a href="/2016/03/18/filter_by_bit_operate.html">位运算在条件过滤中的应用</a>
             
         </span>
     </div>
@@ -164,8 +209,8 @@
     
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://blog.0xfx0.com/2016/03/28/download-android-sdk/';
-        this.page.identifier = '2016/03/28/download-android-sdk/';
+        this.page.url = 'http://blog.0xfx0.com/2016/03/23/mysql_transcation_isolation_level.html';
+        this.page.identifier = '2016/03/23/mysql_transcation_isolation_level.html';
         
         this.language = 'en';
         
@@ -183,6 +228,7 @@
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </div>
+
 
     </div>
 </section>
