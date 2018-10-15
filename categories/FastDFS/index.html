@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Categories - Xinkai Song&#39;s Homepage</title>
+<title>Category: FastDFS - Xinkai Song&#39;s Homepage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -102,35 +102,56 @@
     <section class="section section-heading">
     <div class="container">
         <div class="content">
-            <h5><i class="far fa-folder"></i>Categories</h5>
+            <h5><i class="far fa-folder"></i>FastDFS</h5>
         </div>
     </div>
 </section>
 <section class="section">
     <div class="container">
-        <div class="columns is-variable is-1 is-multiline is-mobile">
-            
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/docker/">docker&nbsp;(1)</a>
-            </span>
-            
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/note/">note&nbsp;(1)</a>
-            </span>
-            
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/algorithm/">algorithm&nbsp;(1)</a>
-            </span>
-            
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/FastDFS/">FastDFS&nbsp;(1)</a>
-            </span>
-            
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/php/">php&nbsp;(1)</a>
-            </span>
-            
-        </div>
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018/10/15/install-fastdfs.html" itemprop="url">安装FastDFS步骤</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-10-15T13:13:10.000Z" itemprop="datePublished">Oct 15 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/FastDFS/">FastDFS</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以下安装步骤在<code>CentOS 7.4.1708</code>上操作,项目git地址：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/happyfish100/libfastcommon</span><br><span class="line">https://github.com/happyfish100/fastdfs</span><br></pre></td></tr></table></figure>
+<h2 id="安装依赖libfastcommon"><a href="#安装依赖libfastcommon" class="headerlink" title="安装依赖libfastcommon"></a>安装依赖libfastcommon</h2><p>1.下载</p>
+<p><code>wget https://github.com/happyfish100/libfastcommon/archive/V1.0.39.tar.gz</code></p>
+<p>2.解压安装</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  V1.0.39.tar.gz</span><br><span class="line">cd libfastcommon-1.0.39</span><br><span class="line">./make.sh</span><br><span class="line">./make.sh install</span><br></pre></td></tr></table></figure>
+<p>3.安装文件目录如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/lib64/libfastcommon.so </span><br><span class="line">/lib64/libfdfsclient.so</span><br></pre></td></tr></table></figure>
+        <p class="article-more-link">
+            <a href="/2018/10/15/install-fastdfs.html#more">Read More</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+
+    
+    
     </div>
 </section>
     <footer class="footer">
