@@ -105,6 +105,40 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2018/10/15/docker-without-sudo.html" itemprop="url">使用docker命令不需要sudo的方法</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-10-15T09:17:45.000Z" itemprop="datePublished">Oct 15 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/docker/">docker</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>安装完使用<code>docker</code>命令默认是需要<code>sudo</code>权限的，因为访问<code>/var/run/docker.sock</code>需要<code>docker</code>组的用户权限，那么把当前用户加入<code>docker</code>组就可以了。</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo gpasswd -a <span class="hljs-variable">$&#123;USER&#125;</span> docker</span><br><span class="line">sudo service docker restart</span><br><span class="line">newgrp - docker</span><br></pre></td></tr></table></figure>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2016/03/28/download-android-sdk.html" itemprop="url">国内下载Android SDK方法</a>
         
     </h1>
@@ -240,7 +274,7 @@
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/application/">application</a>
+            <a class="article-category-link" href="/categories/php/">php</a>
         </span>
         
         
