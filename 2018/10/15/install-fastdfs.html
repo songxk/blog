@@ -121,16 +121,26 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>以下安装步骤在<code>CentOS 7.4.1708</code>上操作,项目git地址：</p>
+        <!-- toc -->
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#安装依赖libfastcommon">安装依赖libfastcommon</a></li>
+<li><a href="#安装fastdfs">安装FastDFS</a></li>
+<li><a href="#配置tracker">配置Tracker</a></li>
+<li><a href="#配置fastdfs存储storage">配置FastDFS存储Storage</a></li>
+<li><a href="#测试服务">测试服务</a></li>
+</ul>
+<!-- tocstop -->
+<h3><span id="前言">前言</span></h3><p>以下安装步骤在<code>CentOS 7.4.1708</code>上操作,项目git地址：</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/happyfish100/libfastcommon</span><br><span class="line">https://github.com/happyfish100/fastdfs</span><br></pre></td></tr></table></figure>
-<h3 id="安装依赖libfastcommon"><a href="#安装依赖libfastcommon" class="headerlink" title="安装依赖libfastcommon"></a>安装依赖libfastcommon</h3><p>1.下载</p>
+<h3><span id="安装依赖libfastcommon">安装依赖libfastcommon</span></h3><p>1.下载</p>
 <p><code>wget https://github.com/happyfish100/libfastcommon/archive/V1.0.39.tar.gz</code></p>
 <p>2.解压安装</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  V1.0.39.tar.gz</span><br><span class="line">cd libfastcommon-1.0.39</span><br><span class="line">./make.sh</span><br><span class="line">./make.sh install</span><br></pre></td></tr></table></figure>
 <p>3.安装文件目录如下：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/lib64/libfastcommon.so </span><br><span class="line">/lib64/libfdfsclient.so</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h3><p>1.下载</p>
+<h3><span id="安装fastdfs">安装FastDFS</span></h3><p>1.下载</p>
 <p><code>wget https://github.com/happyfish100/fastdfs/archive/V5.10.tar.gz</code></p>
 <p>2.解压安装</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf V5.10.tar.gz</span><br><span class="line">cd fastdfs-5.10</span><br><span class="line">./make.sh</span><br><span class="line">./make.sh install</span><br></pre></td></tr></table></figure>
@@ -147,7 +157,7 @@
 <li>相关工具</li>
 </ul>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/bin/fdfs_append_file</span><br><span class="line">/bin/fdfs_appender_test</span><br><span class="line">/bin/fdfs_appender_test1</span><br><span class="line">/bin/fdfs_crc32</span><br><span class="line">/bin/fdfs_delete_file</span><br><span class="line">/bin/fdfs_download_file</span><br><span class="line">/bin/fdfs_file_info</span><br><span class="line">/bin/fdfs_monitor</span><br><span class="line">/bin/fdfs_storaged</span><br><span class="line">/bin/fdfs_test</span><br><span class="line">/bin/fdfs_test1</span><br><span class="line">/bin/fdfs_trackerd</span><br><span class="line">/bin/fdfs_upload_appender</span><br><span class="line">/bin/fdfs_upload_file</span><br><span class="line">/stop.sh</span><br><span class="line">/restart.sh</span><br></pre></td></tr></table></figure>
-<h3 id="配置Tracker"><a href="#配置Tracker" class="headerlink" title="配置Tracker"></a>配置Tracker</h3><p>1.从模板文件拷贝一份配置：</p>
+<h3><span id="配置tracker">配置Tracker</span></h3><p>1.从模板文件拷贝一份配置：</p>
 <p><code>cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf</code></p>
 <p>2.编辑<code>/etc/fdfs/tracker.conf</code></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 配置文件是否不生效，false 为生效</span><br><span class="line">disabled=false</span><br><span class="line"># 提供服务的端口,我这儿使用默认端口</span><br><span class="line">port=22122</span><br><span class="line"># tracker数据和日志目录地址,根目录必须存在,子目录会自动创建</span><br><span class="line">base_path=/fastdfs/tracker</span><br></pre></td></tr></table></figure>
@@ -159,7 +169,7 @@
 <p>第一次启动会在/fastdfs/tracker目录下面创建data和logs两个文件夹,目录结构如下：</p>
 </blockquote>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- data</span><br><span class="line">|   |-- fdfs_trackerd.pid</span><br><span class="line">|   |-- storage_changelog.dat</span><br><span class="line">|   |-- storage_groups_new.dat 存储分组信息</span><br><span class="line">|   |-- storage_servers_new.dat 存储服务器列表</span><br><span class="line">|   |-- storage_sync_timestamp.dat</span><br><span class="line">|-- logs</span><br><span class="line">    |-- trackerd.log 日志文件</span><br></pre></td></tr></table></figure>
-<h3 id="配置FastDFS存储Storage"><a href="#配置FastDFS存储Storage" class="headerlink" title="配置FastDFS存储Storage"></a>配置FastDFS存储Storage</h3><p>1.从模板拷贝一份配置文件</p>
+<h3><span id="配置fastdfs存储storage">配置FastDFS存储Storage</span></h3><p>1.从模板拷贝一份配置文件</p>
 <p><code>cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf</code></p>
 <p>2.编辑<code>/etc/fdfs/storage.conf</code>：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># 配置文件是否不生效, false 为生效</span><br><span class="line">disabled=false </span><br><span class="line"></span><br><span class="line"># 指定此 storage server 所在组</span><br><span class="line">group_name=g1</span><br><span class="line"></span><br><span class="line"># storage server 服务端口,我使用默认端口</span><br><span class="line">port=23000</span><br><span class="line"></span><br><span class="line"># 心跳间隔时间,单位为秒 (这里是指主动向 tracker server 发送心跳)</span><br><span class="line">heart_beat_interval=30</span><br><span class="line"></span><br><span class="line"># Storage 数据和日志目录地址,根目录必须存在,子目录会自动生成</span><br><span class="line">base_path=/fastdfs/storage</span><br><span class="line"></span><br><span class="line"># 存放文件时 storage server 支持多个路径。这里配置存放文件的基路径数目，通常只配一个目录。</span><br><span class="line">store_path_count=1</span><br><span class="line"></span><br><span class="line"># 逐一配置 store_path_count 个路径，索引号基于 0。</span><br><span class="line"># 如果不配置 store_path0，那它就和 base_path 对应的路径一样。</span><br><span class="line">store_path0=/fastdfs/file</span><br><span class="line"></span><br><span class="line"># FastDFS 存储文件时,采用了两级目录。</span><br><span class="line"># 如果本参数为N(如：256),那么 storage server 在初次运行时,</span><br><span class="line"># 会在 store_path 下自动创建 N * N 个存放文件的子目录,即在file下面有256个目录,</span><br><span class="line"># 然后每一个目录下面又有256个目录</span><br><span class="line">subdir_count_per_path=256</span><br><span class="line"></span><br><span class="line"># tracker_server 的列表 ，会主动连接 tracker_server</span><br><span class="line"># 有多个 tracker server 时，每个 tracker server 写一行</span><br><span class="line">tracker_server=192.168.1.100:22122</span><br></pre></td></tr></table></figure>
@@ -171,7 +181,7 @@
 <blockquote>
 <p>可以使用<code>fdfs_monitor</code>工具查看<code>Storage</code>和<code>Tracker</code>的连接情况<br><code>/bin/fdfs_monitor /etc/fdfs/storage.conf</code></p>
 </blockquote>
-<h3 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h3><p>1.从模板拷贝配置</p>
+<h3><span id="测试服务">测试服务</span></h3><p>1.从模板拷贝配置</p>
 <p><code>cp /etc/fdfs/client.conf.sample /etc/fdfs/client.conf</code></p>
 <p>2.编辑<code>/etc/fdfs/client.conf</code>:</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># client的数据和日志目录</span><br><span class="line">base_path=/fastdfs/client</span><br><span class="line"></span><br><span class="line"># tracker端口</span><br><span class="line">tracker_server=192.168.1.100:22122</span><br></pre></td></tr></table></figure>
