@@ -73,14 +73,14 @@
             <a class="navbar-item "
                href="/archives">Archives</a>
             
+            <a class="navbar-item "
+               href="/categories">Category</a>
+            
             <a class="navbar-item is-active"
                href="/categories/algorithm">Algorithm</a>
             
             <a class="navbar-item "
                href="/categories/note">Note</a>
-            
-            <a class="navbar-item "
-               href="/categories/book">Book</a>
             
             <a class="navbar-item "
                href="/about">About</a>
@@ -142,7 +142,7 @@
 <h3 id="那么对于一条资源我们如何存储flag呢？"><a href="#那么对于一条资源我们如何存储flag呢？" class="headerlink" title="那么对于一条资源我们如何存储flag呢？"></a>那么对于一条资源我们如何存储<code>flag</code>呢？</h3><p>作按位与运算 ： <code>$flag = $auth | $os;</code><br>假设<code>$auth</code> 是<code>FLAG_AUTH_NO</code> 对应的二进制就是<code>0010</code>，<code>$os</code>是<code>FLAG_OS_IOS</code>对应的二进制是<code>0010 0000</code>，那么进行按位或以后flag的值就是<code>0010 0010</code>，对应的十进制就是34。</p>
 <h3 id="在显示资源的列表的时候如何知道该资源的每个条件值呢？"><a href="#在显示资源的列表的时候如何知道该资源的每个条件值呢？" class="headerlink" title="在显示资源的列表的时候如何知道该资源的每个条件值呢？"></a>在显示资源的列表的时候如何知道该资源的每个条件值呢？</h3><p>对于上面存入的资源，我们可以使用<a href="http://baike.baidu.com/view/68.htm" title="掩码" target="_blank" rel="noopener">掩码</a>运算，对于<code>os</code>作按位与运算<br><code>$os = flag &amp; FLAG_OS_ALL</code>，这样我们就可以得到<code>0010 0000</code>也就是<code>FLAG_OS_IOS</code>。<br></p>
         <p class="article-more-link">
-            <a href="/2016/03/18/filter_by_bit_operate.html#more">Read More</a>
+            <a href="/2016/03/18/filter_by_bit_operate.html#more">READ MORE</a>
         </p>
     
     </div>
