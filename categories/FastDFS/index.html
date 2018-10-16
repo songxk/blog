@@ -112,6 +112,54 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2018/10/16/install-fastdfs-nginx-module.html" itemprop="url">安装FastDFS的Nginx模块</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-10-16T09:38:33.000Z" itemprop="datePublished">Oct 16 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/FastDFS/">FastDFS</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>1.下载源码</p>
+<p><code>wget https://github.com/happyfish100/fastdfs-nginx-module/archive/V1.20.tar.gz</code></p>
+<p>2.编译安装</p>
+<p><code>tar -zxvf V1.20.tar.gz</code> 然后得到源码文件夹<code>fastdfs-nginx-module-1.20</code>,如果已经安装了<code>nginx</code>的使用<code>/nginx -V</code>查看编译选项，进入<code>nginx</code>源码文件夹：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx --add-module=../fastdfs-nginx-module-1.20/src</span><br><span class="line"># 编译安装</span><br><span class="line">make &amp; make install</span><br></pre></td></tr></table></figure>
+<p>3.配置</p>
+<p>拷贝<code>fastdfs-nginx-module-1.20/conf/mod_fastdfs.conf</code>到<code>/etc/fdfs/mod_fastdfs.conf</code>，编辑<code>mod_fastdfs.conf</code></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Tracker Server</span><br><span class="line">tracker_server=192.168.1.100:22122</span><br><span class="line"></span><br><span class="line"># StorageServer 默认端口</span><br><span class="line">storage_server_port=23000</span><br><span class="line"></span><br><span class="line"># 如果FileId中包含/g**，则要设置为true</span><br><span class="line">url_have_group_name = true</span><br><span class="line"></span><br><span class="line"># Storage 配置的store_path0路径，必须和storage.conf中的一致</span><br><span class="line">store_path0=/fastdfs/file</span><br></pre></td></tr></table></figure>
+<p>拷贝<code>FastDFS</code>源码下面的配置</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd fastdfs-5.11/conf</span><br><span class="line">cp anti-steal.jpg http.conf mime.types /etc/fdfs/</span><br></pre></td></tr></table></figure>
+<p>修改<code>Nginx Server</code>的配置文件</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    location ~/g1/M00 &#123;</span><br><span class="line">        ngx_fastdfs_module;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>listen</code>的端口要和<code>tracker.conf</code>和<code>storage.conf</code>中的<code>http.server_port</code>保持一致.</p>
+</blockquote>
+<p>4.启动Nginx</p>
+<p>通过<code>http://servername/g1/M00/00/00/wKgBE1vEh8SABxZzAAAPoV_qebE972.png</code> 就可以访问之前上传的文件了.</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2018/10/15/install-fastdfs.html" itemprop="url">安装FastDFS步骤</a>
         
     </h1>
@@ -145,7 +193,6 @@
     
     
 </article>
-
 
 
 
