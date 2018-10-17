@@ -112,6 +112,42 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2018/10/17/install-php-extension-fastdfs-client.html" itemprop="url">编译安装php扩展之fastdfs-client</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-10-17T11:25:11.000Z" itemprop="datePublished">Oct 17 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/FastDFS/">FastDFS</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>扩展在<code>fastdfs</code>的源码目录下面<code>php_client</code></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/phpize</span><br><span class="line">./configure --with-php-config=/usr/bin/php-config </span><br><span class="line">make &amp; make install</span><br></pre></td></tr></table></figure>
+<p>拷贝<code>fastdfs_client.ini</code>到扩展的<code>ini</code>配置文件目录</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 指向fastdfs下面的配置文件</span><br><span class="line">fastdfs_client.tracker_group0 = /etc/fdfs/client.conf</span><br></pre></td></tr></table></figure>
+<p>可以使用源码下面的<code>fastdfs_test.php</code>测试.</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2018/10/16/install-fastdfs-nginx-module.html" itemprop="url">安装FastDFS的Nginx模块</a>
         
     </h1>

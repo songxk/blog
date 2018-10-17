@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.0x0.info/2018/10/17/install-php-extension-fastdfs-client.html</loc>
+    
+    <lastmod>2018-10-17T11:26:39.729Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.0x0.info/2018/10/16/install-fastdfs-nginx-module.html</loc>
     
     <lastmod>2018-10-16T09:45:23.914Z</lastmod>
