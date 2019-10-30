@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.0x0.info/2016/03/23/mysql_transcation_isolation_level.html</loc>
+    
+    <lastmod>2019-10-30T08:47:07.341Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0x0.info/2015/09/07/php-compile-configure-options.html</loc>
+    
+    <lastmod>2019-10-30T08:47:00.964Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0x0.info/2016/03/18/filter_by_bit_operate.html</loc>
+    
+    <lastmod>2019-10-30T08:46:33.259Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.0x0.info/2018/10/17/install-php-extension-fastdfs-client.html</loc>
     
-    <lastmod>2018-10-17T11:32:02.416Z</lastmod>
+    <lastmod>2019-10-30T08:45:31.628Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.0x0.info/2018/10/16/install-fastdfs-nginx-module.html</loc>
     
-    <lastmod>2018-10-16T09:45:23.914Z</lastmod>
+    <lastmod>2019-10-30T08:45:17.333Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0x0.info/2018/10/15/docker-without-sudo.html</loc>
+    
+    <lastmod>2019-10-30T08:45:02.574Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0x0.info/2018/10/12/curl-failure-when-receiving-data-from-the-peer.html</loc>
+    
+    <lastmod>2019-10-30T08:44:51.313Z</lastmod>
     
   </url>
   
@@ -19,20 +54,6 @@
     <loc>http://blog.0x0.info/2018/10/15/install-fastdfs.html</loc>
     
     <lastmod>2018-10-16T09:40:13.965Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0x0.info/2018/10/15/docker-without-sudo.html</loc>
-    
-    <lastmod>2018-10-15T09:34:19.708Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0x0.info/2015/09/07/php-compile-configure-options.html</loc>
-    
-    <lastmod>2018-10-15T09:32:28.923Z</lastmod>
     
   </url>
   
@@ -47,20 +68,6 @@
     <loc>http://blog.0x0.info/about/index.html</loc>
     
     <lastmod>2018-10-11T15:54:24.875Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0x0.info/2016/03/18/filter_by_bit_operate.html</loc>
-    
-    <lastmod>2018-10-11T15:33:44.590Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0x0.info/2016/03/23/mysql_transcation_isolation_level.html</loc>
-    
-    <lastmod>2018-10-10T12:47:51.379Z</lastmod>
     
   </url>
   

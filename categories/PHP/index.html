@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>使用docker命令不需要sudo的方法 - Xinkai Song&#39;s Homepage</title>
+<title>Category: PHP - Xinkai Song&#39;s Homepage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -99,91 +99,114 @@
     </div>
 </nav>
 
-    <section class="section">
+    <section class="section section-heading">
     <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
+        <div class="content">
+            <h5><i class="far fa-folder"></i>PHP</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            使用docker命令不需要sudo的方法
+            <a href="/2018/10/17/install-php-extension-fastdfs-client.html" itemprop="url">编译安装php扩展之fastdfs-client</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2018-10-15T09:17:45.000Z" itemprop="datePublished">Oct 15 2018</time>
+            <time datetime="2018-10-17T11:25:11.000Z" itemprop="datePublished">Oct 17 2018</time>
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            <a class="article-category-link" href="/categories/PHP/">PHP</a>
         </span>
         
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>安装完使用<code>docker</code>命令默认是需要<code>sudo</code>权限的，因为访问<code>/var/run/docker.sock</code>需要<code>docker</code>组的用户权限，那么把当前用户加入<code>docker</code>组就可以了。</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo gpasswd -a <span class="hljs-variable">$&#123;USER&#125;</span> docker</span><br><span class="line">sudo service docker restart</span><br><span class="line">newgrp - docker</span><br></pre></td></tr></table></figure>
+        <p>扩展在<code>fastdfs</code>的源码目录下面<code>php_client</code></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/phpize</span><br><span class="line">./configure --with-php-config=/usr/bin/php-config </span><br><span class="line">make &amp; make install</span><br></pre></td></tr></table></figure>
+<p>拷贝<code>fastdfs_client.ini</code>到扩展的<code>ini</code>配置文件目录</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 指向fastdfs下面的配置文件</span><br><span class="line">fastdfs_client.tracker_group0 = /etc/fdfs/client.conf</span><br></pre></td></tr></table></figure>
+<p>可以使用源码下面的<code>fastdfs_test.php</code>测试.</p>
 
     
     </div>
     
-    <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Docker/">#Docker</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/2018/10/15/install-fastdfs.html">安装FastDFS步骤</a>
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/2018/10/12/curl-failure-when-receiving-data-from-the-peer.html">curl(56)Failure when receiving data from the peer</a>
-            
-        </span>
-    </div>
     
 </article>
 
 
-<div class="sharebox">
+
+
     
-<div class="sharethis-inline-share-buttons"></div>
-<script type='text/javascript' src='blog.0x0.info' async='async'></script>
-
-</div>
-
-
-
-<div class="comments">
-    <h3 class="title is-4">Comments</h3>
-    
-<script>
-    var disqus_config = function () {
-        this.page.url = 'http://blog.0x0.info/2018/10/15/docker-without-sudo.html';
-        this.page.identifier = '2018/10/15/docker-without-sudo.html';
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-        this.language = 'en';
+            <a href="/2015/09/07/php-compile-configure-options.html" itemprop="url">PHP常用编译选项说明</a>
         
-    };
-    (function() {
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'songxinkai' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-
-<div id="disqus_thread">
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2015-09-07T09:38:29.000Z" itemprop="datePublished">Sep 7 2015</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/PHP/">PHP</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
+        <h4><span id="编译选项">编译选项</span></h4><p>针对PHP的编译选项，可以参考PHP源码下面的<code>configure</code>文件，里面有详细的分类，下面挑选常用的选项作说明。</p>
+<blockquote>
+<p>在一个源代码下面如果有<code>configure</code>文件的话，可以使用<code>configure --help</code>查看编译选项。</p>
+</blockquote>
+<h4><span id="编译选项说明">编译选项说明</span></h4><ul>
+<li>–prefix=/usr/local/php 指定php安装的路径</li>
+<li>–with-config-file-path=xxx 指定php.ini文件的路径</li>
+<li>–with-mysql=[DIR] DIR为MySQL安装根目录，添加MySQL支持</li>
+<li>–with-mysql-sock  定位mysql的unix 套接字指针。如未指定，则按默认位置搜索</li>
+<li>–with-mysqli=FILE 添加MySQLi支持，FILE是mysql_config文件的路径</li>
+<li>–with-gd=[DIR]   添加GD库支持，DIR是GD库的根目录</li>
+<li>–with-vpx-dir=DIR    GD相关 libvpx安装目录</li>
+<li>–with-jpeg-dir=DIR   GD相关 libjpeg安装目录</li>
+<li>–with-png-dir=DIR    GD相关 libpng安装目录</li>
+<li>–with-zlib-dir=DIR    GD相关 libz安装目路</li>
+<li>–with-xpm-dir=DIR   GD相关 libXpm安装目录</li>
+<li>–with-freetype-dir=DIR  GD相关 FreeType 2安装目录</li>
+<li>–disable-rpath  禁用传递其他的运行时库搜索路径</li>
+<li>–enable-safe-mode  启用默认的安全模式 </li>
+<li>–enable-fpm 启用php-fpm组件</li>
+<li>–with-mcrypt=DIR 添加mcrypt支持，DIR为libmcrypt安装路径</li>
+<li>–with-zlib 设置zlib的安装目录</li>
+<li>–enable-mbstring 启用多字节字符串的支持</li>
+<li>–with-openssl 启用openssl支持</li>
+<li>–enable-pdo 添加pdo扩展支持</li>
+<li>–with-pdo-mysql=[DIR] 添加对mysql的pdo支持，DIR为mysql的安装目录</li>
+<li>–with-curl 添加curl扩展支持</li>
+<li>–enable-sockets 启用Sockets支持</li>
+<li>–enable-zip 启用zip支持</li>
+</ul>
 
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+    
     </div>
 </section>
     <footer class="footer">
