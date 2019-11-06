@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Category: Linux - Xinkai Song&#39;s Homepage</title>
+<title>kill &amp; killall &amp; pkill - Xinkai Song&#39;s Homepage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -99,52 +99,12 @@
     </div>
 </nav>
 
-    <section class="section section-heading">
+    <section class="section">
     <div class="container">
-        <div class="content">
-            <h5><i class="far fa-folder"></i>Linux</h5>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
+    <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2018/10/12/curl-failure-when-receiving-data-from-the-peer.html" itemprop="url">curl(56)Failure when receiving data from the peer</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2018-10-12T10:00:11.000Z" itemprop="datePublished">Oct 12 2018</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Linux/">Linux</a>
-        </span>
-        
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>排查发现机器的内存被耗尽，free 命令查看cached占用过高，手动释放修复<br>释放前最好sync一下，防止丢数据，sync的作用是把buffer数据强行写入磁盘。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">To free pagecache:  echo 1 &gt; /proc/sys/vm/drop_caches</span><br><span class="line">To free dentries and inodes:  echo 2 &gt; /proc/sys/vm/drop_caches</span><br><span class="line">To free pagecache, dentries and inodes:  echo 3 &gt; /proc/sys/vm/drop_caches</span><br></pre></td></tr></table></figure></p>
-
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2016/10/05/kill-killall-pkill.html" itemprop="url">kill &amp; killall &amp; pkill</a>
+            kill &amp; killall &amp; pkill
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -181,14 +141,67 @@
     
     </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Linux/">#Linux</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Command/">#Command</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Kill/">#Kill</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2018/10/12/curl-failure-when-receiving-data-from-the-peer.html">curl(56)Failure when receiving data from the peer</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2016/03/23/mysql_transcation_isolation_level.html">数据库事务隔离级别</a>
+            
+        </span>
+    </div>
     
 </article>
 
 
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='blog.0x0.info' async='async'></script>
+
+</div>
 
 
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
     
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://blog.0x0.info/2016/10/05/kill-killall-pkill.html';
+        this.page.identifier = '2016/10/05/kill-killall-pkill.html';
+        
+        this.language = 'en';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'songxinkai' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
     
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
     </div>
 </section>
     <footer class="footer">

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.0x0.info/2016/10/05/kill-killall-pkill.html</loc>
+    
+    <lastmod>2019-11-06T02:33:28.528Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.0x0.info/2016/03/23/mysql_transcation_isolation_level.html</loc>
     
     <lastmod>2019-10-30T08:47:07.341Z</lastmod>
