@@ -285,6 +285,39 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2016/10/07/redis-memory-policy.html" itemprop="url">Redis内存回收策略</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2016-10-06T16:00:00.000Z" itemprop="datePublished">Oct 7 2016</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Redis/">Redis</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><code>Redis</code>提供了<code>maxmemory</code>来设置可以使用的最大内存限制，当达到该限制以后，<code>Redis</code>就开始清理键值，清理的策略有以下几种。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">volatile-lru -&gt; 从设置了有效期的键中选择最久未使用的一个键释放。</span><br><span class="line">allkeys-lru -&gt; 从所有的键中选择最久未使用的一个键释放。</span><br><span class="line">volatile-random -&gt; 从设置了有效期的键中随机选择一个键释放。</span><br><span class="line">allkeys-random -&gt; 从所有的键中随机选择一个键删除。</span><br><span class="line">volatile-ttl -&gt; 从设置了过期时间的键中选一个马上要过期的键删除。</span><br><span class="line">noeviction -&gt; 不删除任何键，对于写入操作返回一个错误提示。</span><br></pre></td></tr></table></figure></p>
+<p>默认使用<code>noeviction</code>策略，该策略适合那种确定数据不会增长超过<code>maxmemory</code>限制的场景。<br><code>Redis</code>中的LRU算法，是随机挑选几个键然后从中选出一个最久未使用的删除，选几个键由配置<code>maxmemory-samples</code>指定，默认是5。<br>一般来说，推荐使用<code>volatile-lru</code>策略，对于那些不能丢失的数据，可以通过不设置过期时间防止被删除；那些热数据，比如用户信息，可以从DB中获取的，可以设置过期时间，这样在内存不足的情况下就可以淘汰这部分数据。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2016/10/05/kill-killall-pkill.html" itemprop="url">kill &amp; killall &amp; pkill</a>
         
     </h1>
